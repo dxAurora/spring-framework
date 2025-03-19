@@ -1,0 +1,32 @@
+plugins {
+    id 'java'
+}
+
+group = 'org.springframework'
+version = '5.3.39'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    api(project(":spring-beans"))
+    api(project(":spring-context"))
+    api(project(":spring-core"))
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+// 禁用主代码的 Checkstyle 检查
+checkstyleMain {
+    enabled = false
+}
+
+// 禁用测试代码的 Checkstyle 检查（可选）
+checkstyleTest {
+    enabled = false
+}
